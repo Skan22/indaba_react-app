@@ -754,3 +754,71 @@ section[id],div[id] { scroll-margin-top:5.5rem; }
   .cipher { padding:1rem 1.25rem; gap:.625rem; }
   .cipher__text { min-width:0; font-size:var(--fs-base); letter-spacing:.12em; }
 }
+
+/* ==========================================================================
+   tech challenge — a specification brief: status, statement, spec strip,
+   actions. Stacked rather than side-by-side, so it reads as a document.
+   ========================================================================== */
+.brief {
+  position:relative;
+  padding:clamp(1.75rem,4vw,3rem) clamp(1.5rem,4vw,3rem);
+  padding-left:clamp(2rem,4.5vw,3.5rem);
+  border-radius:var(--r-panel);
+  background:var(--surface-card);
+  box-shadow:var(--shadow-md);
+  overflow:hidden;
+}
+/* accent rail: this is the live, time-sensitive block on the page */
+.brief::before {
+  content:""; position:absolute; left:0; top:0; bottom:0; width:4px;
+  background:var(--accent);
+}
+.brief__head { max-width:56ch; }
+
+/* a genuine state indicator, not decoration */
+.status {
+  display:inline-flex; align-items:center; gap:.5rem;
+  font-family:var(--font-display); font-size:var(--fs-xs); font-weight:700;
+  letter-spacing:var(--ls-caps); text-transform:uppercase; color:var(--accent-strong);
+}
+.status__dot {
+  width:7px; height:7px; border-radius:50%; background:var(--accent-strong);
+  box-shadow:0 0 0 3px rgba(198,159,104,.22);
+}
+@media (prefers-reduced-motion:no-preference) {
+  .status__dot { animation:ix-pulse 2.4s var(--ease-standard) infinite; }
+}
+@keyframes ix-pulse {
+  0%,100% { box-shadow:0 0 0 3px rgba(198,159,104,.22); }
+  50% { box-shadow:0 0 0 6px rgba(198,159,104,0); }
+}
+
+.brief__grid {
+  display:grid; grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:clamp(1.25rem,2.5vw,2rem);
+  margin:clamp(2rem,4vw,2.75rem) 0 0;
+  padding-top:clamp(1.5rem,3vw,2rem);
+  border-top:1px solid var(--border-subtle);
+}
+.brief__item { min-width:0; }
+.brief__ico { color:var(--accent-strong); }
+.brief__k {
+  margin-top:.75rem; font-family:var(--font-display); font-size:var(--fs-2xs);
+  font-weight:700; letter-spacing:var(--ls-caps-wide); text-transform:uppercase;
+  color:var(--text-muted);
+}
+.brief__v { margin:.3125rem 0 0; font-size:var(--fs-sm); font-weight:600; color:var(--text-heading); line-height:1.45; }
+
+.brief__actions {
+  display:flex; flex-wrap:wrap; gap:.875rem; align-items:center;
+  margin-top:clamp(2rem,4vw,2.75rem);
+}
+.brief__soon { font-size:var(--fs-sm); color:var(--text-muted); }
+
+@media (max-width:860px) {
+  .brief__grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.5rem; }
+}
+@media (max-width:480px) {
+  .brief__grid { grid-template-columns:1fr; }
+  .brief__actions .btn { width:100%; justify-content:space-between; }
+}

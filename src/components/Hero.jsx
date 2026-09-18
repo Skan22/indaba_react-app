@@ -74,8 +74,8 @@ export default function Hero() {
             Hosted by the SUP&rsquo;COM IEEE Student Branch.
           </p>
           <div className="hero__actions animate-in" style={{ '--delay': '340ms' }}>
-            <a className="btn" href="#register">
-              Register
+            <a className="btn" href="#challenge">
+              Register a team
               <span className="btn__ico" aria-hidden="true"><ArrowRight size={15} /></span>
             </a>
             <a className="btn btn--ghost" href="#about">

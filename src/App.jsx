@@ -4,6 +4,7 @@ import NavBar from './components/NavBar.jsx';
 import Hero from './components/Hero.jsx';
 import Glance from './components/Glance.jsx';
 import About from './components/About.jsx';
+import Challenge from './components/Challenge.jsx';
 import Theme from './components/Theme.jsx';
 import Speakers from './components/Speakers.jsx';
 import Partners from './components/Partners.jsx';
@@ -33,6 +34,7 @@ export default function App() {
         <Hero />
         <Glance />
         <About />
+        <Challenge />
         <Theme />
         <Speakers />
         <Partners />

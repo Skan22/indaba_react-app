@@ -1,10 +1,11 @@
 import { ArrowUpRight, EnvelopeSimple } from '@phosphor-icons/react';
 import logoWhite from '../assets/logo-white.webp';
 import Calligraphy from './Calligraphy.jsx';
-import { CONTACT_EMAIL, SOCIAL } from '../site.config.js';
+import { CONTACT_EMAIL, SOCIAL, CHALLENGE_SPEC_URL, CHALLENGE_FORM_URL } from '../site.config.js';
 
 const SECTIONS = [
   { label: 'About', href: '#about' },
+  { label: 'Challenge', href: '#challenge' },
   { label: 'Theme', href: '#theme' },
   { label: 'Speakers', href: '#speakers' },
   { label: 'Sponsors', href: '#sponsors' },
@@ -44,6 +45,22 @@ export default function Footer() {
                 <span className="sr-only">(opens in a new tab)</span>
               </a>
             </li>
+            {CHALLENGE_SPEC_URL ? (
+              <li>
+                <a href={CHALLENGE_SPEC_URL} target="_blank" rel="noreferrer noopener">
+                  Specification book <ArrowUpRight size={13} aria-hidden="true" style={{ display: 'inline', verticalAlign: '-1px' }} />
+                  <span className="sr-only">(PDF on Google Drive, opens in a new tab)</span>
+                </a>
+              </li>
+            ) : null}
+            {CHALLENGE_FORM_URL ? (
+              <li>
+                <a href={CHALLENGE_FORM_URL} target="_blank" rel="noreferrer noopener">
+                  Register a team <ArrowUpRight size={13} aria-hidden="true" style={{ display: 'inline', verticalAlign: '-1px' }} />
+                  <span className="sr-only">(opens in a new tab)</span>
+                </a>
+              </li>
+            ) : null}
             {CONTACT_EMAIL ? (
               <li>
                 <a href={`mailto:${CONTACT_EMAIL}`}>

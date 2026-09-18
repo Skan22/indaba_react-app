@@ -20,9 +20,18 @@ its fallback state to the real thing:
 
 | Value | Effect while null | Effect once set |
 | --- | --- | --- |
-| `REGISTER_ENDPOINT` | Registration shows a "opens soon" notice | Renders the sign-up form (validation, pending, success and error states are all wired) |
+| `REGISTER_ENDPOINT` | Attendance registration shows an "opens soon" notice | Renders the sign-up form (validation, pending, success and error states are all wired) |
 | `CONTACT_EMAIL` | Contact links are omitted | Adds "Become a partner" and the footer address |
 | `SOCIAL` | Empty entries are skipped | Adds footer links |
+
+`CHALLENGE_FORM_URL` and `CHALLENGE_SPEC_URL` are already set to the published
+Tech Challenge form and specification book. Both fall back gracefully: with no
+form URL the challenge section says registration opens soon, and with no spec
+URL the spec-book button is simply not rendered.
+
+Check that the specification book folder is shared as "anyone with the link".
+It is linked publicly from the site, so a restricted folder sends visitors into
+a Google permission-request screen.
 
 Also set the real domain in the `og:url` meta tag in `index.html`. If you switch
 the registration form on, add a privacy note next to it, since it then collects
@@ -31,8 +40,13 @@ names and email addresses.
 ## Structure
 
 The page runs in three acts: a deep navy open (nav, hero), a paper-white body
-(about, theme, speakers, sponsors) and a deep navy close (registration, footer).
-Sections change tone, but the gold accent and the shape language do not.
+(about, challenge, theme, speakers, sponsors) and a deep navy close
+(registration, footer). Sections change tone, but the gold accent and the shape
+language do not.
+
+Two different actions live on this page and are deliberately labelled apart:
+entering the Tech Challenge as a team, which is open now and carries the nav and
+hero CTA, and registering to attend the day, which is not open yet.
 
 - `src/index.css` — the whole design system: brand tokens, fluid type scale,
   spacing, the z-index scale, motion easings, and every component class
@@ -44,6 +58,8 @@ Sections change tone, but the gold accent and the shape language do not.
 - `src/components/Glance.jsx` — live countdown, overlapping the hero so the date
   is on screen at first paint
 - `src/components/About.jsx` — statement plus a six-tile gallery band
+- `src/components/Challenge.jsx` — the Tech Challenge brief: live status, team
+  rules, the specification book and the team registration form
 - `src/components/Theme.jsx` — the withheld theme, as a redacted line
 - `src/components/Speakers.jsx` — one keynote slot and two track slots
 - `src/components/Partners.jsx` — 2026 partnership tiers, plus the real 2025

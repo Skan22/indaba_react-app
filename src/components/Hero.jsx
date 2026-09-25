@@ -5,9 +5,11 @@ import starOrnament from '../assets/ornament-star.webp';
 import latticeLeft from '../assets/ornament-lattice-tall-left.webp';
 import latticeRight from '../assets/ornament-lattice-tall-right.webp';
 import Calligraphy from './Calligraphy.jsx';
+import { CHALLENGE_REGISTRATION } from '../site.config.js';
 
 export default function Hero() {
   const ref = useRef(null);
+  const challengeOpen = CHALLENGE_REGISTRATION === 'open';
 
   /* Pointer parallax written straight to CSS custom properties on the section.
      Keeping it out of React state means the hero never re-renders while the
@@ -74,12 +76,12 @@ export default function Hero() {
             Hosted by the SUP&rsquo;COM IEEE Student Branch.
           </p>
           <div className="hero__actions animate-in" style={{ '--delay': '340ms' }}>
-            <a className="btn" href="#challenge">
-              Register a team
+            <a className="btn" href="#register">
+              Register
               <span className="btn__ico" aria-hidden="true"><ArrowRight size={15} /></span>
             </a>
-            <a className="btn btn--ghost" href="#about">
-              What is IndabaX?
+            <a className="btn btn--ghost" href={challengeOpen ? '#challenge' : '#about'}>
+              {challengeOpen ? 'Enter the Tech Challenge' : 'What is IndabaX?'}
               <span className="btn__ico" aria-hidden="true"><ArrowDown size={15} /></span>
             </a>
           </div>

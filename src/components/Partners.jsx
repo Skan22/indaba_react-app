@@ -2,6 +2,7 @@ import Reveal from './Reveal.jsx';
 import partners2025 from '../assets/partners-2025.webp';
 import logoSupcom from '../assets/logo-supcom.webp';
 import logoBna from '../assets/logo-bna.webp';
+import logoIeeeTunisia from '../assets/logo-ieee-tunisia.webp';
 import { CONTACT_EMAIL } from '../site.config.js';
 
 const TIERS = [
@@ -18,6 +19,13 @@ const TIERS = [
     logoHeight: 68,
     name: 'BNA',
     desc: 'Sponsors the 2026 edition.'
+  },
+  {
+    logo: logoIeeeTunisia,
+    logoWidth: 440,
+    logoHeight: 229,
+    name: 'IEEE Tunisia Section',
+    desc: 'Supports the 2026 edition.'
   }
 ];
 
@@ -44,7 +52,7 @@ export default function Partners() {
             </p>
           ) : (
             <p style={{ marginTop: '1.5rem', fontSize: 'var(--fs-sm)', color: 'var(--text-muted)' }}>
-              Partnership details for 2026 are being finalised with the SUP&rsquo;COM IEEE Student Branch.
+              More partners for 2026 are still being confirmed.
             </p>
           )}
         </Reveal>

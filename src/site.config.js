@@ -9,9 +9,10 @@
 /** Organisers' address, e.g. 'indabax@supcom.tn'. Enables the contact links. */
 export const CONTACT_EMAIL = null;
 
-/** POST target for the sign-up form, e.g. a Formspree or Google Form endpoint.
- *  While null, the registration section shows the "opens soon" state instead. */
-export const REGISTER_ENDPOINT = null;
+/** Attendee registration form. Free entry, places limited. While null the
+ *  registration section shows an "opens soon" state instead of the button. */
+export const ATTEND_FORM_URL =
+  'https://docs.google.com/forms/d/e/1FAIpQLSe0anDsqGiWuV99i7VG7vhhV9j8Ck3oLCWB7gv8Kc1tvWDuqQ/viewform';
 
 /** Tech Challenge: the published specification book (Google Drive folder).
  *  Confirm the folder's sharing is set to "anyone with the link" before launch;
@@ -19,8 +20,18 @@ export const REGISTER_ENDPOINT = null;
 export const CHALLENGE_SPEC_URL =
   'https://drive.google.com/drive/folders/1PLwVk98dgNToEJMvx9EDhN67wAsqnynh';
 
-/** Tech Challenge: the team registration form. While null the challenge
- *  section shows a "registration opens soon" state instead of the button. */
+/** Where Tech Challenge team entries stand. Drives the challenge section, the
+ *  hero's second button and the footer link, so this one word is the only edit
+ *  needed to open or close entries.
+ *
+ *    'open'   linked as the section's primary action
+ *    'closed' entries have shut; the specification book stays linked
+ *    'soon'   not open yet
+ */
+export const CHALLENGE_REGISTRATION = 'closed';
+
+/** The team registration form. Only linked while CHALLENGE_REGISTRATION is
+ *  'open'; kept here so entries can be reopened without hunting for the URL. */
 export const CHALLENGE_FORM_URL =
   'https://docs.google.com/forms/d/e/1FAIpQLSfUVwJsJpv-ke-opFTx6KASutsIpiFFWleg1yFpt3qKwvYbxw/viewform';
 

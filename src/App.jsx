@@ -6,6 +6,7 @@ import Glance from './components/Glance.jsx';
 import About from './components/About.jsx';
 import Challenge from './components/Challenge.jsx';
 import Theme from './components/Theme.jsx';
+import Program from './components/Program.jsx';
 import Speakers from './components/Speakers.jsx';
 import Partners from './components/Partners.jsx';
 import Register from './components/Register.jsx';
@@ -36,6 +37,7 @@ export default function App() {
         <About />
         <Challenge />
         <Theme />
+        <Program />
         <Speakers />
         <Partners />
         <Register />

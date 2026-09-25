@@ -6,6 +6,7 @@ const NAV = [
   { label: 'About', href: '#about' },
   { label: 'Challenge', href: '#challenge' },
   { label: 'Theme', href: '#theme' },
+  { label: 'Program', href: '#program' },
   { label: 'Speakers', href: '#speakers' },
   { label: 'Sponsors', href: '#sponsors' }
 ];
@@ -86,8 +87,8 @@ export default function NavBar() {
             ))}
           </nav>
 
-          <a className="btn nav__cta" href="#challenge">
-            Register a team
+          <a className="btn nav__cta" href="#register">
+            Register
             <span className="btn__ico" aria-hidden="true"><ArrowRight size={13} /></span>
           </a>
 
@@ -118,8 +119,8 @@ export default function NavBar() {
             {item.label}
           </a>
         ))}
-        <a className="btn menu__cta" href="#challenge" onClick={() => setOpen(false)}>
-          Register a team
+        <a className="btn menu__cta" href="#register" onClick={() => setOpen(false)}>
+          Register
           <span className="btn__ico" aria-hidden="true"><ArrowRight size={14} /></span>
         </a>
       </div>

@@ -20,14 +20,33 @@ its fallback state to the real thing:
 
 | Value | Effect while null | Effect once set |
 | --- | --- | --- |
-| `REGISTER_ENDPOINT` | Attendance registration shows an "opens soon" notice | Renders the sign-up form (validation, pending, success and error states are all wired) |
 | `CONTACT_EMAIL` | Contact links are omitted | Adds "Become a partner" and the footer address |
 | `SOCIAL` | Empty entries are skipped | Adds footer links |
 
-`CHALLENGE_FORM_URL` and `CHALLENGE_SPEC_URL` are already set to the published
-Tech Challenge form and specification book. Both fall back gracefully: with no
-form URL the challenge section says registration opens soon, and with no spec
-URL the spec-book button is simply not rendered.
+The three published links are already set and need nothing further:
+
+| Value | What it points at |
+| --- | --- |
+| `ATTEND_FORM_URL` | Attendee registration. Free entry, places limited |
+| `CHALLENGE_SPEC_URL` | The specification book on Google Drive |
+| `CHALLENGE_FORM_URL` | Tech Challenge team registration, linked only while entries are open |
+
+`CHALLENGE_REGISTRATION` is the one word that opens or closes team entries:
+
+| Value | Challenge section | Hero's second button | Footer |
+| --- | --- | --- | --- |
+| `'open'` | "Registration open", team form leads, spec book second | "Enter the Tech Challenge" | Lists the team form |
+| `'closed'` | "Team registration closed", spec book is the only action | "What is IndabaX?" | Team form hidden |
+| `'soon'` | "Team registration opens soon" | "What is IndabaX?" | Team form hidden |
+
+The challenge headline changes with it, so a closed challenge never invites
+entries it cannot take. Reopening entries is a single edit back to `'open'`.
+
+Registration is handled by Google Forms, so the site links out rather than
+collecting anything itself. That is why there is no form markup, no endpoint and
+no privacy notice to write: nothing is submitted to this site. If you ever move
+to a self-hosted form, the previous inline implementation (validation, pending,
+success and error states) is in git history at commit `0e711f0`.
 
 Check that the specification book folder is shared as "anyone with the link".
 It is linked publicly from the site, so a restricted folder sends visitors into
@@ -44,9 +63,11 @@ The page runs in three acts: a deep navy open (nav, hero), a paper-white body
 (registration, footer). Sections change tone, but the gold accent and the shape
 language do not.
 
-Two different actions live on this page and are deliberately labelled apart:
-entering the Tech Challenge as a team, which is open now and carries the nav and
-hero CTA, and registering to attend the day, which is not open yet.
+Two different actions live on this page and are deliberately labelled apart.
+"Register" means attending the day and is the broader of the two, so it carries
+the nav pill and the hero's primary button. "Register a team" means entering the
+Tech Challenge, which only suits student teams of three to five, so it sits as
+the hero's secondary button and inside the challenge section.
 
 - `src/index.css` — the whole design system: brand tokens, fluid type scale,
   spacing, the z-index scale, motion easings, and every component class

@@ -1,7 +1,7 @@
 import { ArrowUpRight, EnvelopeSimple } from '@phosphor-icons/react';
 import logoWhite from '../assets/logo-white.webp';
 import Calligraphy from './Calligraphy.jsx';
-import { CONTACT_EMAIL, SOCIAL, CHALLENGE_SPEC_URL, CHALLENGE_FORM_URL } from '../site.config.js';
+import { CONTACT_EMAIL, SOCIAL, CHALLENGE_SPEC_URL, CHALLENGE_FORM_URL, CHALLENGE_REGISTRATION, ATTEND_FORM_URL } from '../site.config.js';
 
 const SECTIONS = [
   { label: 'About', href: '#about' },
@@ -45,6 +45,14 @@ export default function Footer() {
                 <span className="sr-only">(opens in a new tab)</span>
               </a>
             </li>
+            {ATTEND_FORM_URL ? (
+              <li>
+                <a href={ATTEND_FORM_URL} target="_blank" rel="noreferrer noopener">
+                  Register to attend <ArrowUpRight size={13} aria-hidden="true" style={{ display: 'inline', verticalAlign: '-1px' }} />
+                  <span className="sr-only">(opens in a new tab)</span>
+                </a>
+              </li>
+            ) : null}
             {CHALLENGE_SPEC_URL ? (
               <li>
                 <a href={CHALLENGE_SPEC_URL} target="_blank" rel="noreferrer noopener">
@@ -53,7 +61,7 @@ export default function Footer() {
                 </a>
               </li>
             ) : null}
-            {CHALLENGE_FORM_URL ? (
+            {CHALLENGE_REGISTRATION === 'open' && CHALLENGE_FORM_URL ? (
               <li>
                 <a href={CHALLENGE_FORM_URL} target="_blank" rel="noreferrer noopener">
                   Register a team <ArrowUpRight size={13} aria-hidden="true" style={{ display: 'inline', verticalAlign: '-1px' }} />
